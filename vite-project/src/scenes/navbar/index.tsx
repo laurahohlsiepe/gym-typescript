@@ -12,16 +12,22 @@ type Props = {
     setSelectedPage: (value: SelectedPage) => void,
 }
 
-const NavBar = ( { selectedPage, setSelectedPage, isTopOfPage }: Props) => {
-const flexBetween = "flex items-center justify-between";
-const isAboveMediumScreens = useMediaQuery("(min-width: 1060px)");
-const [isMenuToggled, setIsMenuToggled] = useState<boolean>(false);
-const navBarBackground = isTopOfPage ? "" : "bg-primary-100 drop-shadow";
+const NavBar = ({  isTopOfPage, selectedPage, setSelectedPage }: Props) => {
+    const flexBetween = "flex items-center justify-between";
+    const isAboveMediumScreens = useMediaQuery("(min-width: 1060px)");
+    const [isMenuToggled, setIsMenuToggled] = useState<boolean>(false);
+    const navBarBackground = isTopOfPage ? "" : "bg-primary-100 drop-shadow";
 
-  return (
-  <nav>
-    <div className={`${navBarBackground} ${flexBetween} fixed top-0 z-30 w-full py-6`}>
-        <div className={`${flexBetween} mx-auto w-5/6`}>
+    useEffect(() => {
+        console.log("NavBar updated: ", isTopOfPage);
+    }, [isTopOfPage]);
+
+    return (
+    <nav>
+        <div 
+          className={`${navBarBackground} ${flexBetween} fixed top-0 z-30 w-full py-6`}
+        >
+          <div className={`${flexBetween} mx-auto w-5/6`}>
              <div className={`${flexBetween} w-full gap-16`}>
                 <img alt="Logo" src={Logo} />
 
@@ -52,10 +58,10 @@ const navBarBackground = isTopOfPage ? "" : "bg-primary-100 drop-shadow";
                ) : (
                 <button
                 className="rounded-full bg-secondary-500 p-2"
-                onClick={() => setIsMenuToggled(!isMenuToggled)}>
+                onClick={() => setIsMenuToggled(!isMenuToggled)} >
                     <Bars3Icon className="h-6 w-6 text-white" />
                 </button>
-               ) }
+               )}
              </div>
         </div>
     </div>
