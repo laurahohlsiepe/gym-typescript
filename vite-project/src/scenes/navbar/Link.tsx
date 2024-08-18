@@ -4,7 +4,7 @@ import { SelectedPage } from "@/shared/types";
 type Props = {
     page: string;
     selectedPage: SelectedPage;
-    setSelectedPage: (value: SelectedPage) => void,
+    setSelectedPage: (value: SelectedPage) => void
 }
 
 const Link = ({

@@ -3,6 +3,7 @@ import Home from "@/scenes/home";
 import Benefits from "@/scenes/benefits";
 import OurClasses from "@/scenes/ourclasses";
 import ContactUs from "@/scenes/contactUs";
+import Footer from "@/scenes/footer";
 import { useEffect, useState } from "react";
 import { SelectedPage } from "@/shared/types";
 
@@ -12,7 +13,6 @@ function App() {
 
   useEffect(() => {
     const handleScroll = () => {
-      console.log("ScrollY Position:", window.scrollY);
       if (window.scrollY === 0) {
         setIsTopOfPage(true);
         setSelectedPage(SelectedPage.Home);
@@ -38,6 +38,8 @@ function App() {
         <OurClasses 
               setSelectedPage={setSelectedPage}/>
         <ContactUs 
+              setSelectedPage={setSelectedPage} />
+        <Footer 
               setSelectedPage={setSelectedPage} />
    </div>
   )
