@@ -16,9 +16,7 @@ function App() {
       if (window.scrollY === 0) {
         setIsTopOfPage(true);
         setSelectedPage(SelectedPage.Home);
-        console.log("top of page");
       } else if (window.scrollY !== 0) {
-        console.log("not top of page");
         setIsTopOfPage(false);
       }
     };
@@ -39,7 +37,7 @@ function App() {
               setSelectedPage={setSelectedPage} />
         <OurClasses 
               setSelectedPage={setSelectedPage}/>
-          <ContactUs 
+        <ContactUs 
               setSelectedPage={setSelectedPage} />
    </div>
   )
